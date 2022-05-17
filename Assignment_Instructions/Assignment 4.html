@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://ds.cs.rutgers.edu/assignment-lse/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Introduction to Data Structures and Algorithms</title>
+        <link rel="stylesheet" href="./Assignment 4_files/style.css">
+   <link rel="dns-prefetch" href="https://maps.googleapis.com/">
+<link rel="dns-prefetch" href="https://wordpress.cs.rutgers.edu/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/ds.cs.rutgers.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.6"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><style>
+
+						@font-face {
+
+							font-family: 'Mtga-Extension-Comic-Sans';
+							src: url( 'chrome-extension://iopebbikefjcknnbmdkkcebchlnaioen/fonts/font4.ttf' );
+
+						}
+
+					</style><script src="./Assignment 4_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="theme-style-css" href="./Assignment 4_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-style-override-css" href="./Assignment 4_files/override.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Assignment 4_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Assignment 4_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-fontawesome-css" href="./Assignment 4_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-genericons-css" href="./Assignment 4_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="./Assignment 4_files/elementor-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="./Assignment 4_files/animations.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="./Assignment 4_files/frontend.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="./Assignment 4_files/frontend.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="./Assignment 4_files/all.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="./Assignment 4_files/v4-shims.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="./Assignment 4_files/global.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-1864-css" href="./Assignment 4_files/post-1864.css" type="text/css" media="all">
+<link rel="stylesheet" id="authorizer-public-css-css" href="./Assignment 4_files/authorizer-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="./Assignment 4_files/css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var OnePress_Plus = {"ajax_url":"https:\/\/ds.cs.rutgers.edu\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 4_files/jquery.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/v4-shims.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var auth = {"wpLoginUrl":"https:\/\/ds.cs.rutgers.edu\/wp-login.php?redirect_to=%2Fassignment-lse%2F","publicWarning":"","anonymousNotice":"Notice: You are browsing this site anonymously, and only have access to a portion of its content.","logIn":"Log In"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 4_files/authorizer-public.js"></script>
+<link rel="https://api.w.org/" href="https://ds.cs.rutgers.edu/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ds.cs.rutgers.edu/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://ds.cs.rutgers.edu/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.4.6">
+<link rel="canonical" href="https://ds.cs.rutgers.edu/assignment-lse/">
+<link rel="shortlink" href="https://ds.cs.rutgers.edu/?p=1864">
+<link rel="alternate" type="application/json+oembed" href="https://ds.cs.rutgers.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fds.cs.rutgers.edu%2Fassignment-lse%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://ds.cs.rutgers.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fds.cs.rutgers.edu%2Fassignment-lse%2F&amp;format=xml">
+<script src="./Assignment 4_files/saved_resource" type="text/javascript"></script>
+<!-- teachPress -->
+<script type="text/javascript" src="./Assignment 4_files/frontend.js"></script>
+<link type="text/css" href="./Assignment 4_files/teachpress_front.css" rel="stylesheet">
+<!-- END teachPress -->
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif" sizes="32x32">
+<link rel="icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif" sizes="192x192">
+<link rel="apple-touch-icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif">
+<meta name="msapplication-TileImage" content="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif">
+<style type="text/css">/** Mega Menu CSS: fs **/</style>
+
+    <script type="text/javascript" charset="UTF-8" src="./Assignment 4_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./Assignment 4_files/util.js"></script></head>
+    <body data-elementor-device-mode="desktop">
+                <a class="sas-skip-to-content sas-link" href="https://ds.cs.rutgers.edu/assignment-lse/#sas-content">Skip to Main Content</a>
+        <input type="checkbox" class="sas-sidenav-toggle" id="sas-sidenav-toggle">
+        <label for="sas-sidenav-toggle" class="sas-sidenav-label" role="button" aria-label="Toggle Navigation Sidebar">
+            <div class="sas-bar"></div>
+            <div class="sas-bar"></div>
+            <div class="sas-bar"></div>
+        </label>
+        <nav class="sas-sidenav" aria-label="Primary Navigation">
+                
+            <ul class="sas-ul sas-links-tree">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    <li id="menu-item-178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-178 sas-item"><a href="https://ds.cs.rutgers.edu/" class="sas-link">Syllabus</a></li>
+<li id="menu-item-198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198 sas-item"><a href="https://ds.cs.rutgers.edu/lectures/" class="sas-link">Lectures</a></li>
+<li id="menu-item-291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291 sas-item"><a href="https://ds.cs.rutgers.edu/assignments/" class="sas-link">Assignments</a></li>
+<li id="menu-item-371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371 sas-item"><a href="https://ds.cs.rutgers.edu/exams/" class="sas-link">Exams</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 sas-item"><a href="https://ds.cs.rutgers.edu/staff/" class="sas-link">Staff</a></li>
+<li id="menu-item-1522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1522 sas-item"><a href="https://ds.cs.rutgers.edu/peer-mentors/" class="sas-link">Tutors</a></li>
+
+            </ul>
+        
+        </nav>
+
+        <div class="sas-page">
+                        <div class="sas-top-links">
+                <div class="sas-container">
+                        
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://www.rutgers.edu/">Rutgers Home</a>
+                </li>
+                
+    <li id="menu-item-1267" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1267 sas-item"><a href="http://sas.rutgers.edu/" class="sas-link">SAS</a></li>
+<li id="menu-item-1268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1268 sas-item"><a href="http://cs.rutgers.edu/" class="sas-link">CS</a></li>
+
+            </ul>
+        
+                    <div class="sas-search">
+                            
+    <form role="search" method="get" action="https://ds.cs.rutgers.edu/">
+        <input class="sas-search-text" type="text" value="" name="s" placeholder="Search ..." aria-label="Search Query">
+    </form>
+
+                    </div>
+                </div>
+            </div>
+
+                        <header>
+                <div class="sas-banner">
+                    <div class="sas-container">
+                        <div role="img" aria-label="School of Arts and Sciences Logo">
+                            <a href="https://sas.rutgers.edu/" aria-label="School of Arts and Sciences">
+                            <img class="sas-logo sas-logo-big" src="./Assignment 4_files/red_banner.png" alt="School of Arts and Sciences Logo">
+                            <img class="sas-logo sas-logo-small" src="./Assignment 4_files/sas_red_header_MOBILE.png" alt="School of Arts and Sciences Logo">
+                            </a>
+                        </div>
+                        <h1 class="sas-title">
+                            <a class="sas-link" href="https://ds.cs.rutgers.edu/" aria-label="">Introduction to Data Structures and Algorithms</a>
+                        </h1>
+                        <h2 class="sas-tagline">
+                           Computer Science Department                        </h2>
+                    </div>
+                </div>
+            </header>
+
+                        <nav class="sas-nav" aria-label="Primary Navigation">
+                <div class="sas-container">
+                        
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-178 sas-item"><a href="https://ds.cs.rutgers.edu/" class="sas-link">Syllabus</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198 sas-item"><a href="https://ds.cs.rutgers.edu/lectures/" class="sas-link">Lectures</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291 sas-item"><a href="https://ds.cs.rutgers.edu/assignments/" class="sas-link">Assignments</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371 sas-item"><a href="https://ds.cs.rutgers.edu/exams/" class="sas-link">Exams</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 sas-item"><a href="https://ds.cs.rutgers.edu/staff/" class="sas-link">Staff</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1522 sas-item"><a href="https://ds.cs.rutgers.edu/peer-mentors/" class="sas-link">Tutors</a></li>
+
+            </ul>
+        
+                </div>
+            </nav>
+
+            <main class="sas-content" id="sas-content">
+                <div class="sas-container">
+                        
+    <article class="sas-post" data-detected_0="1">		<div data-elementor-type="wp-post" data-elementor-id="1864" class="elementor elementor-1864" data-elementor-settings="[]">
+			<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+							<section class="elementor-element elementor-element-80a7e1b elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="80a7e1b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-cc85108 elementor-column elementor-col-100 elementor-top-column" data-id="cc85108" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-45d9c17 elementor-widget elementor-widget-text-editor" data-id="45d9c17" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Little Search Engine – 100 course points</h3><p>The purpose of this assignment is to broaden your understanding of the Hash Table data structure.&nbsp;You will implement a simple search engine for text documents using hash tables.</p><p>Refer to our Programming <a href="https://ds.cs.rutgers.edu/assignment-faq/">Assignments FAQ</a> for instructions on how to install VSCode, how to use the command line and how to submit your assignments.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d272697 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d272697" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-898441f elementor-column elementor-col-100 elementor-top-column" data-id="898441f" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-4b19954 elementor-widget elementor-widget-text-editor" data-id="4b19954" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Summary</h3><p>You will implement a little search engine to do two things: (a) gather and index keywords that appear in a set of plain text documents, and (b) search for user-input keywords against the index and return a list of matching documents in which these keywords occur.</p><p>You will be using the Java implementation of a Hash Table &nbsp;called HashMap and the Java implementation of a set called HashSet. <a href="https://youtu.be/nstb9QXVvCQ">This video</a> will help you understand how to use HashMap.&nbsp;</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-c766eea elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="c766eea" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-4ff2e33 elementor-column elementor-col-100 elementor-top-column" data-id="4ff2e33" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-d0e66df elementor-widget elementor-widget-text-editor" data-id="d0e66df" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Implementation</h3><p>At the bottom of the Autolab assignment page, under <b>Attachments</b>, you will see a <tt>lse_project.zip</tt> file.&nbsp;Download and unzip in your computer. You will see there are:</p><ul><li>2 directories/folders<ul><li><strong>src</strong>: contains the folder poly with&nbsp;<tt>LittleSearchEngine.java</tt>&nbsp;(this is where you will write your code),&nbsp;<tt>Occurence.java</tt>&nbsp;(supporting class, DO NOT change), and <tt>LSEtest.java</tt> (initial test client, update this file for testing).</li><li><strong>bin</strong>: contains the folder poly with the class files after the assignment is compiled</li></ul></li><li>5 files<ul><li>Two sample text documents (<tt>AliceCh1.txt</tt>, <tt>WowCh1.tx</tt>). Be sure to get other online text documents–or make your own–for more rigorous testing.</li><li>A <tt>noisewords.txt</tt> file that contains a list of “noise” words, one per line. Noise words are commonplace words (such as “the”) that must be ignored by the search engine. You will use this file (and this file ONLY) to filter out noise words from the documents you read, when gathering keywords.</li><li>A <tt>docs.txt</tt> file that has a list of all documents (in this case <tt>AliceCh1.txt</tt> and <tt>WowCh1.txt</tt>) from which the search engine should extract keywords.</li><li><tt>Makefile</tt>: used to automate building and executing the target program.</li></ul></li></ul><p>Following is the sequence of method calls that will be performed on a <tt>LittleSearchEngine</tt> object, to index and search keywords.</p><ul><li><tt>LittleSearchEngine()</tt> – Already implemented.The constructor creates new (empty) <tt>keywordsIndex</tt> and <tt>noiseWords</tt> hash tables. The <tt>keywordsIndex</tt> hash table is the MASTER hash table, which indexes all keywords from all input documents. The <tt>noiseWords</tt> hash table stores all the noise words. Both of these are fields in the <tt>LittleSearchEngine</tt> class.Every key in the <tt>keywordsIndex</tt> hash table is a keyword. The associated value for a keyword is an array list of (document,frequency) pairs for the documents in which the keyword occurs, <em>arranged in descending order of frequencies</em>. A (document,frequency) pair is held in an <tt>Occurrence</tt> object. The <tt>Occurrence</tt> class is defined in the <tt>LittleSearchEngine.java</tt> file, at the top. In an <tt>Occurrence</tt> object, the <tt>document</tt> field is the name of the document, which is basically the file name, e.g. AliceCh1.txt.</li><li><tt>void makeIndex(String docsFile, String noiseWordsFile)</tt> – Already implemented.Indexes all the keywords in all the input documents. See the method documentation and body in the <tt>LittleSearchEngine.java</tt> file for details.If you want to index the given sample documents, the first parameter would be the file <tt>docs.txt</tt> and the second parameter would be the noise words file, <tt>noisewords.txt</tt><p>After this method finishes executing, the full index of all keywords found in all input documents will be in the <tt>keywordsIndex</tt> hash table.</p><p>The <tt>makeIndex</tt> methods calls methods <tt>loadKeywordsFromDocument</tt> and <tt>mergeKeywords</tt>, both of which you need to implement.</p><ul><li><tt>HashMap&lt;String,Occurrence&gt; loadKeywordsFromDocument(String docFile)</tt> – <span class="impl">You implement</span>.This method creates a hash table for all keywords in a single given document. See the method documentation for details.This method MUST call the <tt>getKeyword</tt> method, which you need to implement.<ul><li><tt>String getKeyword(String word)</tt> – <span class="impl">You implement</span>.Given an input word read from a document, it checks if the word is a keyword, and returns the keyword equivalent if it is.FIRST, see the method documentation in the code for details, including a specific short list of punctuations to consider for filtering out. THEN, look at the following illustrative examples of input word, and returned value.<br><table><tbody><tr><th>Input Parameter</th><th>Returned value</th></tr><tr><td>distance.</td><td>distance (strip off period)</td></tr><tr><td>equi-distant</td><td>null (not all alphabetic characters)</td></tr><tr><td>Rabbit</td><td>rabbit (convert to lowercase)</td></tr><tr><td>Through</td><td>null (noise word)</td></tr><tr><td>we’re</td><td>null (not all alphabetic characters)</td></tr><tr><td>World…</td><td>world (strip trailing periods)</td></tr><tr><td>World?!</td><td>world (strip trailing ? and !)</td></tr><tr><td>What,ever</td><td>null (not all alphabetic characters)</td></tr></tbody></table></li></ul><p>Observe that (as per the rules described in the method documentation), if there is more than one trailing punctuation (as in the “World…” and “World?!” examples above), the method strips all of them. Also, the last example makes it clear that punctuation appearing anywhere but at the end is not stripped, and the word is rejected.</p><p>Note that this is a much simplified filtering mechanism, and will reject certain words that might be accepted by a real-world engine. But the idea is to not unduly complicate this process, focusing instead on hash tables, which is the point of this assignment. So, just stick to the rules described here.</p></li><li><tt>void mergeKeywords&lt;hashmap&lt;string,occurrence&gt;&lt;/hashmap&lt;string,occurrence&gt;</tt> – <span class="impl">You implement</span>.Merges the keywords loaded from a single document (in method <tt>loadKeywordsFromDocument</tt>) into the global <tt>keywordsIndex</tt> hash table.See the method documentation for details. This method MUST call the <tt>insertLastOccurence</tt> method, which you need to implement.<ul><li><tt>ArrayList insertLastOccurrence(ArrayList occs)</tt> – <span class="impl">You implement</span>.See the method documentation for details. Note that this method uses binary search on frequency values to do the insertion. The return value is the sequence of mid points encountered during the search, using the regular (not lazy) binary search we covered in class. This return value is not used by the calling method-it is only going to be used for grading this method.For example, suppose the list had the following frequency values (including the last one, which is to be inserted):<pre>     --------------------
+     12  8  7  5  3  2  <span style="color: red">6</span>
+     --------------------
+      0  1  2  3  4  5  6
+</pre><p>Then, the binary search (on the list <em>excluding</em> the last item) would encounter the following sequence of midpoint indexes:</p><pre>    2  4  3
+</pre><p><b>Note that if a subarray has an even number of items, then the midpoint is the last item in the first half.</b></p><p>After inserting <tt>6</tt>, the input list would be updated to this:</p><pre>     --------------------
+     12  8  7  <span style="color: red">6</span>  5  3  2
+     --------------------
+      0  1  2  3  4  5  6
+</pre><p>and the sequence <tt>2 4 3</tt> would be returned.</p><p><b>If the new item is a duplicate of something that already exists, it doesn’t matter if the new item is placed before or after the existing item.</b></p><p><span style="color: red">Note that the items are in DESCENDING order, so the binary search would have to be done accordingly.</span></p></li></ul></li></ul></li><li><tt>ArrayList top5search(String kw1, String kw2)</tt> – <span class="impl">You implement</span>.This method computes the search result for the input “kw1 OR kw2”, using the <tt>keywordsIndex</tt> hash table. The result is a list of names of documents (same as name of the text file for that document), <span style="color: red">limited to the top 5</span> in which either of the words “kw1” or “kw2” occurs, <b>arranged in descending order of frequencies.</b> See the method documentation in the code for additional details.As an example, suppose the search is for “deep and world”, in the given test documents, <tt>AliceCh1.txt</tt> (call it <tt>A</tt>) and <tt>WowCh1.txt</tt> (call it <tt>W</tt>). The word “deep” occurs twice in <tt>A</tt> and once in <tt>W</tt>, and the word “world” occurs once in <tt>A</tt> and 7 times in <tt>W</tt>:<pre>    deep:  (A,2), (W,1)
+    world: (W,7), (A,1)
+</pre><p>The result of the search is:</p><pre>    WowCh1.txt, AliceCh1.txt
+</pre><p>in that order.</p><p>NOTE:</p><ul><li>If there are no matches for either keyword, return null or empty list, either is fine.</li><li>If a document occurs in both keywords’ match list, consider the one with the higher frequency – do NOT add frequencies.</li><li>Return AT MOST 5 non-duplicate entries. This means if there are more than 5 non-duplicate entries, then return the five top frequency entries, but if there are fewer than 5 non-duplicate entries, then return all of them.</li><li>If a document in the first match list (for the first keyword) has the same frequency as a document in the second match list (for the second keyword), and both are candidates for inclusion in the output (they are not the same document), then pick the document in the first list before the document in the second list.</li></ul></li></ul><p>You may<strong> NOT MAKE ANY CHANGES</strong> to the <tt>LittleSearchEngine.java</tt> file EXCEPT to (a) fill in the body of the required methods, or (b) add private helper methods.</p><p>You may <strong>NOT MAKE ANY CHANGES</strong> to the <tt>Occurrence</tt> class (you will only be submitting <tt>LittleSearchEngine.java</tt>). When we test your submission, we will use the exact same version of <tt>Occurrence</tt> that we shipped to you.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-c75ad14 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="c75ad14" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-385f422 elementor-column elementor-col-100 elementor-top-column" data-id="385f422" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-134ac0f elementor-widget elementor-widget-text-editor" data-id="134ac0f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Compiling and Executing</h3><p>Once inside the polynomial directory, type:</p><ul><li><strong><tt>javac -d bin src/lse/*.java</tt></strong> to compile</li><li><strong><tt>java -cp bin lse.LSETest</tt></strong>&nbsp;to execute</li></ul><p>If you have a unix operating system (Linux or Mac OS) you CAN use the Makefile file provided. Once inside the polynomial directory type:</p><ul><li><strong>make</strong> to compile</li><li><strong>make run</strong> to execute</li><li><strong>make clean</strong> remove all the .class files</li></ul></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d1b173c elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d1b173c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-0cc9ebf elementor-column elementor-col-100 elementor-top-column" data-id="0cc9ebf" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-bf2241f elementor-widget elementor-widget-text-editor" data-id="bf2241f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h4>Before submission</h4><ol start="4"><li><em>Collaboration policy</em>. Read our collaboration policy <a href="https://ds.cs.rutgers.edu/#academic-integrity">here</a>.</li><li><em>Submitting the assignment</em>.&nbsp;Submit <em>LittleSearchEngine.java</em>&nbsp;separately via the web submission system called Autolab. To do this, click the <em>Assignments</em> link from the course website; click the <em>Submit</em> link for that assignment.</li></ol><h4>Getting help</h4><p>If anything is unclear, don’t hesitate to drop by office hours or post a question on Piazza. Find instructors office hours by clicking the <a href="https://ds.cs.rutgers.edu/staff/"><em>Staff</em></a>&nbsp; link from the course website. In addition to office hours we have the <a href="https://resources.cs.rutgers.edu/docs/rooms-equipment/cave/">CAVE</a> (Collaborative Academic Versatile Environment), a community space staffed with lab assistants which are undergraduate students further along the CS major to answer questions.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+						</div>
+			</div>
+		</div>
+		</article>
+
+                </div>
+            </main>
+            <footer>
+                                <div class="sas-info">
+                    <div class="sas-container">
+                        <div class="sas-links-section">
+                            <h2 class="sas-links-title">Connect with Rutgers</h2>
+                            <ul class="sas-ul sas-links-list">
+                                <li class="sas-item"><a class="sas-link" href="http://www.rutgers.edu/">Rutgers Home</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://www.rutgers.edu/news-center/rutgers-today">Rutgers Today</a></li>
+                                <li class="sas-item"><a class="sas-link" href="https://my.rutgers.edu/portal">myRutgers</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://scheduling.rutgers.edu/calendar.shtml">Academic Calendar</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://ruevents.rutgers.edu/events/">Calendar of Events</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/news-a-events">SAS Events</a></li>
+                            </ul>
+                        </div>
+                        <div class="sas-links-section">
+                            <h2 class="sas-links-title">Explore SAS</h2>
+                            <ul class="sas-ul sas-links-list">
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/academics/departments-a-degree-granting-programs">Departments &amp; Degree-Granting Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/academics/other-instructional-programs">Other Instructional Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sasundergrad.rutgers.edu/index.php/academics/requirements/list-of-majors-and-minors">Majors &amp; Minors</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/for-faculty/795-research-programs-centers-and-institutes">Research Programs, Centers, &amp; Institutes</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sasip.rutgers.edu/">International Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://lifesci.rutgers.edu/">Division of Life Sciences</a></li>
+                            </ul>
+                        </div>
+                            
+                            <div class="sas-links-section">                    <h2 class="sas-links-title">Explore CS</h2>                    <ul class="sas-ul sas-links-list">                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/about/employment">We are Hiring!</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/research/computer-and-network-systems-list">Research</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/news">News</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events">Events</a></li><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events">                        </a><li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events"></a><a class="sas-link" href="https://resources.cs.rutgers.edu/">Resources</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/search">Search CS</a></li>                    </ul>                </div>            
+            
+            
+                    
+                    </div>
+                </div>
+
+                                <nav class="sas-bot-links" aria-label="Secondary Navigation">
+                    <div class="sas-container">
+                            
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    
+            </ul>
+        
+                    </div>
+                </nav>
+
+                                <div role="contentinfo" class="sas-copyright">
+                    <div class="sas-container">
+                        <a class="sas-link sas-to-top" href="https://ds.cs.rutgers.edu/assignment-lse/#">Back to Top</a>
+                        <p class="sas-copyright-p">
+                          Copyright 2020, Rutgers, The State University of New Jersey. All rights reserved.<br>
+                          Rutgers is an equal access/equal opportunity
+                          institution. Individuals with disabilities are
+                          encouraged to direct suggestions, comments, or
+                          complaints concerning any accessibility issues
+                          with Rutgers web sites to: <a class="sas-link" href="mailto:accessibility@rutgers.edu">accessibility@rutgers.edu</a> or complete the <a class="sas-link" href="https://oit.rutgers.edu/accessibility/barrierform">Report Accessibility Barrier or Provide Feedback Form</a>.
+                        </p>
+                    </div>
+                </div>
+
+            </footer>
+        </div>
+        <div aria-hidden="true">
+                <link rel="stylesheet" id="academicons-css" href="./Assignment 4_files/academicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./Assignment 4_files/font-awesome.min(1).css" type="text/css" media="all">
+<script type="text/javascript" src="./Assignment 4_files/js"></script>
+<script type="text/javascript" src="./Assignment 4_files/override.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/owl.carousel.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/slider.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/hoverIntent.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var megamenu = {"timeout":"300","interval":"100"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 4_files/maxmegamenu.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/public.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/wp-embed.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/frontend-modules.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/jquery.sticky.min.js"></script>
+<script type="text/javascript">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ds.cs.rutgers.edu\/wp-admin\/admin-ajax.php","nonce":"90316af5b4","i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"delicious":{"title":"Delicious"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""}};
+</script>
+<script type="text/javascript" src="./Assignment 4_files/frontend.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/position.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/dialog.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/waypoints.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/swiper.min.js"></script>
+<script type="text/javascript" src="./Assignment 4_files/share-link.min.js"></script>
+<script type="text/javascript">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","downloadImage":"Download image"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"2.9.8","urls":{"assets":"https:\/\/wordpress.cs.rutgers.edu\/ds-cs-rutgers-edu\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"general":{"elementor_global_image_lightbox":"yes","elementor_lightbox_enable_counter":"yes","elementor_lightbox_enable_fullscreen":"yes","elementor_lightbox_enable_zoom":"yes","elementor_lightbox_enable_share":"yes","elementor_lightbox_title_src":"title","elementor_lightbox_description_src":"description"},"editorPreferences":[]},"post":{"id":1864,"title":"Assignment%20LSE%20%E2%80%93%20Introduction%20to%20Data%20Structures%20and%20Algorithms","excerpt":"","featuredImage":false}};
+</script>
+<script type="text/javascript" src="./Assignment 4_files/frontend.min(2).js"></script>
+
+        </div><span id="elementor-device-mode" class="elementor-screen-only"></span>
+    
+
+</body></html>

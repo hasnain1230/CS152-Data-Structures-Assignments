@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://ds.cs.rutgers.edu/assignment-polynomial/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Introduction to Data Structures and Algorithms</title>
+        <link rel="stylesheet" href="./Assignment 2_files/style.css">
+   <link rel="dns-prefetch" href="https://maps.googleapis.com/">
+<link rel="dns-prefetch" href="https://wordpress.cs.rutgers.edu/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/ds.cs.rutgers.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.6"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><style>
+
+						@font-face {
+
+							font-family: 'Mtga-Extension-Comic-Sans';
+							src: url( 'chrome-extension://iopebbikefjcknnbmdkkcebchlnaioen/fonts/font4.ttf' );
+
+						}
+
+					</style><script src="./Assignment 2_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="theme-style-css" href="./Assignment 2_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-style-override-css" href="./Assignment 2_files/override.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Assignment 2_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Assignment 2_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-fontawesome-css" href="./Assignment 2_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-genericons-css" href="./Assignment 2_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="./Assignment 2_files/elementor-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="./Assignment 2_files/animations.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="./Assignment 2_files/frontend.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="./Assignment 2_files/frontend.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="./Assignment 2_files/all.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="./Assignment 2_files/v4-shims.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="./Assignment 2_files/global.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-1759-css" href="./Assignment 2_files/post-1759.css" type="text/css" media="all">
+<link rel="stylesheet" id="authorizer-public-css-css" href="./Assignment 2_files/authorizer-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="./Assignment 2_files/css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var OnePress_Plus = {"ajax_url":"https:\/\/ds.cs.rutgers.edu\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 2_files/jquery.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/v4-shims.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var auth = {"wpLoginUrl":"https:\/\/ds.cs.rutgers.edu\/wp-login.php?redirect_to=%2Fassignment-polynomial%2F","publicWarning":"","anonymousNotice":"Notice: You are browsing this site anonymously, and only have access to a portion of its content.","logIn":"Log In"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 2_files/authorizer-public.js"></script>
+<link rel="https://api.w.org/" href="https://ds.cs.rutgers.edu/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ds.cs.rutgers.edu/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://ds.cs.rutgers.edu/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.4.6">
+<link rel="canonical" href="https://ds.cs.rutgers.edu/assignment-polynomial/">
+<link rel="shortlink" href="https://ds.cs.rutgers.edu/?p=1759">
+<link rel="alternate" type="application/json+oembed" href="https://ds.cs.rutgers.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fds.cs.rutgers.edu%2Fassignment-polynomial%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://ds.cs.rutgers.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fds.cs.rutgers.edu%2Fassignment-polynomial%2F&amp;format=xml">
+<script src="./Assignment 2_files/saved_resource" type="text/javascript"></script>
+<!-- teachPress -->
+<script type="text/javascript" src="./Assignment 2_files/frontend.js"></script>
+<link type="text/css" href="./Assignment 2_files/teachpress_front.css" rel="stylesheet">
+<!-- END teachPress -->
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif" sizes="32x32">
+<link rel="icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif" sizes="192x192">
+<link rel="apple-touch-icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif">
+<meta name="msapplication-TileImage" content="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif">
+<style type="text/css">/** Mega Menu CSS: fs **/</style>
+
+    <script type="text/javascript" charset="UTF-8" src="./Assignment 2_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./Assignment 2_files/util.js"></script></head>
+    <body data-elementor-device-mode="desktop">
+                <a class="sas-skip-to-content sas-link" href="https://ds.cs.rutgers.edu/assignment-polynomial/#sas-content">Skip to Main Content</a>
+        <input type="checkbox" class="sas-sidenav-toggle" id="sas-sidenav-toggle">
+        <label for="sas-sidenav-toggle" class="sas-sidenav-label" role="button" aria-label="Toggle Navigation Sidebar">
+            <div class="sas-bar"></div>
+            <div class="sas-bar"></div>
+            <div class="sas-bar"></div>
+        </label>
+        <nav class="sas-sidenav" aria-label="Primary Navigation">
+                
+            <ul class="sas-ul sas-links-tree">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    <li id="menu-item-178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-178 sas-item"><a href="https://ds.cs.rutgers.edu/" class="sas-link">Syllabus</a></li>
+<li id="menu-item-198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198 sas-item"><a href="https://ds.cs.rutgers.edu/lectures/" class="sas-link">Lectures</a></li>
+<li id="menu-item-291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291 sas-item"><a href="https://ds.cs.rutgers.edu/assignments/" class="sas-link">Assignments</a></li>
+<li id="menu-item-371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371 sas-item"><a href="https://ds.cs.rutgers.edu/exams/" class="sas-link">Exams</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 sas-item"><a href="https://ds.cs.rutgers.edu/staff/" class="sas-link">Staff</a></li>
+<li id="menu-item-1522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1522 sas-item"><a href="https://ds.cs.rutgers.edu/peer-mentors/" class="sas-link">Tutors</a></li>
+
+            </ul>
+        
+        </nav>
+
+        <div class="sas-page">
+                        <div class="sas-top-links">
+                <div class="sas-container">
+                        
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://www.rutgers.edu/">Rutgers Home</a>
+                </li>
+                
+    <li id="menu-item-1267" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1267 sas-item"><a href="http://sas.rutgers.edu/" class="sas-link">SAS</a></li>
+<li id="menu-item-1268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1268 sas-item"><a href="http://cs.rutgers.edu/" class="sas-link">CS</a></li>
+
+            </ul>
+        
+                    <div class="sas-search">
+                            
+    <form role="search" method="get" action="https://ds.cs.rutgers.edu/">
+        <input class="sas-search-text" type="text" value="" name="s" placeholder="Search ..." aria-label="Search Query">
+    </form>
+
+                    </div>
+                </div>
+            </div>
+
+                        <header>
+                <div class="sas-banner">
+                    <div class="sas-container">
+                        <div role="img" aria-label="School of Arts and Sciences Logo">
+                            <a href="https://sas.rutgers.edu/" aria-label="School of Arts and Sciences">
+                            <img class="sas-logo sas-logo-big" src="./Assignment 2_files/red_banner.png" alt="School of Arts and Sciences Logo">
+                            <img class="sas-logo sas-logo-small" src="./Assignment 2_files/sas_red_header_MOBILE.png" alt="School of Arts and Sciences Logo">
+                            </a>
+                        </div>
+                        <h1 class="sas-title">
+                            <a class="sas-link" href="https://ds.cs.rutgers.edu/" aria-label="">Introduction to Data Structures and Algorithms</a>
+                        </h1>
+                        <h2 class="sas-tagline">
+                           Computer Science Department                        </h2>
+                    </div>
+                </div>
+            </header>
+
+                        <nav class="sas-nav" aria-label="Primary Navigation">
+                <div class="sas-container">
+                        
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-178 sas-item"><a href="https://ds.cs.rutgers.edu/" class="sas-link">Syllabus</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198 sas-item"><a href="https://ds.cs.rutgers.edu/lectures/" class="sas-link">Lectures</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291 sas-item"><a href="https://ds.cs.rutgers.edu/assignments/" class="sas-link">Assignments</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371 sas-item"><a href="https://ds.cs.rutgers.edu/exams/" class="sas-link">Exams</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 sas-item"><a href="https://ds.cs.rutgers.edu/staff/" class="sas-link">Staff</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1522 sas-item"><a href="https://ds.cs.rutgers.edu/peer-mentors/" class="sas-link">Tutors</a></li>
+
+            </ul>
+        
+                </div>
+            </nav>
+
+            <main class="sas-content" id="sas-content">
+                <div class="sas-container">
+                        
+    <article class="sas-post" data-detected_0="1">		<div data-elementor-type="wp-post" data-elementor-id="1759" class="elementor elementor-1759" data-elementor-settings="[]">
+			<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+							<section class="elementor-element elementor-element-80a7e1b elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="80a7e1b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-cc85108 elementor-column elementor-col-100 elementor-top-column" data-id="cc85108" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-45d9c17 elementor-widget elementor-widget-text-editor" data-id="45d9c17" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Polymonial – 100 course points</h3><p>The purpose of this assignment is to broaden your understanding of the Linked List data structure.</p><p>Refer to our Programming <a href="https://ds.cs.rutgers.edu/assignment-faq/">Assignments FAQ</a> for instructions on how to install VSCode, how to use the command line and how to submit your assignments.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d272697 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d272697" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-898441f elementor-column elementor-col-100 elementor-top-column" data-id="898441f" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-4b19954 elementor-widget elementor-widget-text-editor" data-id="4b19954" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Background</h3><p>A polynomial may be represented using a linked list as follows: for every term in the polynomial there is one entry in the linked list consisting of the term’s coefficient and degree. The entries are ordered according to ASCENDING values of degree, i.e. lowest degree term first, then next lowest degree term and so on, all the way up to the highest degree term. IMPORTANT: Zero-coefficient terms are NOT stored.</p><p>For example, the following polynomial (the symbol ‘^’ is used to mean ‘raised to the power’):</p><pre><span style="color: #0000ff">      4x^5 - 2x^3 + 2x +3
+</span></pre><p>can be represented as the linked list of terms:</p><pre><span style="color: #0000ff">      (3,0) -&gt; (2,1) -&gt; (-2,3) -&gt; (4,5)
+</span></pre><p>where each term is a (coefficient,degree) pair.</p><p>Notes about representation:</p><ul><li>Terms are stored in ASCENDING order of degrees from front to rear in a non-circular linked list.</li><li>Zero-coefficient terms are NOT stored.</li><li><span style="color: red">An EMPTY (zero) polynomial is represented by a linked list with NO NODES in it, i.e. referenced by NULL.</span></li><li>Coefficients are real numbers</li><li>Degrees are POSITIVE integers, except if there is a constant term, in which case the degree is zero.</li><li>There will not be more than one term in the same degree.</li></ul><p><span style="color: red"><b>If you do not represent all your polynomials (the initial inputs as well as those you get out of doing arithmetic on polynomials) as above, you will lose credit even if your results are mathematically correct.</b></span></p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-c766eea elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="c766eea" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-4ff2e33 elementor-column elementor-col-100 elementor-top-column" data-id="4ff2e33" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-d0e66df elementor-widget elementor-widget-text-editor" data-id="d0e66df" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Implementation</h3><p>At the bottom of the Autolab assignment page, under <b>Attachments</b>, you will see a <tt>polynomial_project.zip</tt> file.&nbsp;Download and unzip in your computer. You will see there are:</p><ul><li>2 directories/folders<ul><li><strong>src</strong>: contains the folder poly with&nbsp;<tt>Node.java</tt>, <tt>Term.java</tt>, <tt>Polynomial.java</tt>, and <tt>Polytest.java</tt></li><li><strong>bin</strong>: contains the folder poly with the class files after the assignment is compiled</li></ul></li><li>4 files<ul><li><tt>ptest1.txt</tt>, <tt>ptest2.txt</tt>, <tt>ptest1opp.txt</tt>: input files containing polynomials (described in the <b>Running the Program</b> section below)</li><li><tt>Makefile</tt>: used to automate building and executing the target program</li></ul></li></ul><p>You need to complete the implementation of the <tt>Polynomial</tt> class where indicated in the following methods:</p><table><tbody><tr><th style="text-align: center">Method</th><th>Grading Points</th></tr><tr><td style="text-align: center"><tt>evaluate</tt></td><td style="text-align: center">20</td></tr><tr><td style="text-align: center"><tt>add</tt></td><td style="text-align: center">40</td></tr><tr><td style="text-align: center"><tt>multiply</tt></td><td style="text-align: center">40</td></tr></tbody></table><p>You may use <tt>Math</tt> class methods as needed.</p><p>There is no formal requirement of efficiency for any of the methods. However, every test case run will be timed out after 3 seconds, which is plenty of time even for inefficient code. If your method is timed out on a test case you will get no credit for that test.</p><p><span style="color: red">Note: You will get a zero if you use any other data structure (e.g. array/arraylist) <em>anywhere</em> in your implementation, for <em>any</em> reason, even if it has nothing to do with the actual polynomial operations. You must work with linked lists ONLY all the way through. </span></p><ul><li>Do not change <tt>Node</tt> and <tt>Term</tt> in any way. You will not be submitting them, and we will be using the original versions to test your <tt>Polynomial</tt> implementation.</li><li>If you wish to change <tt>Polytest</tt>, feel free. You will not be submitting it, and we will not be using it to grade your <tt>Polynomial</tt> submission.</li></ul><p>Observe the following rules while working on <tt>Polynomial.java</tt>:</p><ul><li>Only fill in the code in the methods <tt>add</tt>, <tt>multiply</tt>, and <tt>evaluate</tt> where indicated.</li><li>In methods that return a <tt>Polynomial</tt> (<tt>add</tt> and <tt>multiply</tt>), the polynomial that is returned must be represented as described in the “Notes about representation” part of the <b>Background</b> section above.<br><b>Your method will not get credit</b> if the returned polynomial does not adhere to this representation, even it is mathematically correct.<br>Also see the “Notes about empty (zero) polynomials” at the end of the <b>Running the program</b> section below.</li><li><b>DO NOT</b> remove the <tt>package</tt> line at the top of the file.</li><li><b>DO NOT</b> remove any of the <tt>import</tt> statements.</li><li><b>DO NOT</b> add any import statements.</li><li><b>DO NOT</b> change the headers of ANY of the given methods</li><li><b>DO NOT</b> change/remove any of the given class fields</li><li><b>DO NOT</b> add any new class fields – this includes variables and classes.</li><li><b>YOU MAY</b> add new helper methods, but you must declare them <b>private</b>.</li><li><b>DO NOT</b> use System.exit()</li></ul><p>Before you submit, make sure to check your code against the original <tt>Polynomial.java</tt>, <tt>Term.java</tt>, and <tt>Node.java</tt> files to make sure you have adhered to the rules above.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-c75ad14 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="c75ad14" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-385f422 elementor-column elementor-col-100 elementor-top-column" data-id="385f422" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-134ac0f elementor-widget elementor-widget-text-editor" data-id="134ac0f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Compiling and Executing</h3><p>Once inside the polynomial directory, type:</p><ul><li><strong><tt>javac -d bin src/poly/*.java</tt></strong> to compile</li><li><strong><tt>java -cp bin poly.Polytest</tt></strong> to execute</li></ul><p>If you have a unix operating system (Linux or Mac OS) you CAN use the Makefile file provided. Once inside the polynomial directory type:</p><ul><li><strong>make</strong> to compile</li><li><strong>make run</strong> to execute</li><li><strong>make clean</strong> remove all the .class files</li></ul></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-07b78de elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="07b78de" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-aff3ba2 elementor-column elementor-col-100 elementor-top-column" data-id="aff3ba2" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-772d501 elementor-widget elementor-widget-text-editor" data-id="772d501" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Running the Program&nbsp;</h3><p>There are three sample input files for you to test:</p><ul><li>A file <tt>ptest1.txt</tt> that contains the polynomial<pre>4x^5 - 2x^3 + 2x + 3</pre></li><li>A file <tt>ptest2.txt</tt> that contains the polynomial<pre>8x^4 + 4x^3 - 3x + 9</pre></li><li>A file <tt>ptest1opp.txt</tt> that contains the polynomial<pre>-4x^5 + 2x^3 - 2x - 3</pre><p>(the negation of the polynomial in <tt>ptest1</tt>)</p></li></ul><p>In each of these files, each line is a term, with the first value being the coefficient, and the second value being the degree. The terms are listed in <b>descending</b> order of degrees and the respective non-zero coefficients. Remember that when you store a polynomial in a linked list, you will store it in <b>ascending</b> order of degrees. (This is actually already implemented by the Polynomial constructor when it reads a polynomial from an input file. All you have to do is make sure you stick with this rule when you add and multiply.)</p><p>You may assume that we will NOT test with an invalid polynomial file, i.e. every test input file will either have at least one term in the correct format, or will be empty (see <b>Notes about empty (zero) polynomials</b> below). So you don’t need to check for validity of input.</p><p>Here’s a sample run of the driver, <tt>Polytest</tt>. Apart from <tt>ptest1.txt</tt>, <tt>ptest2.txt</tt>, and <tt>ptest1opp.txt</tt>, a fourth test polynomial file, <tt>ptestnull.txt</tt> is also used. This is an empty file that stands for a null (zero) polynomial – you will need to create this yourself. See notes after the test run for special instructions regarding zero polynomials.</p><div class="code"><pre>Enter the name of the polynomial file =&gt; ptest1.txt
+
+4.0x^5 + -2.0x^3 + 2.0x + 3.0
+
+
+1. ADD polynomial
+2. MULTIPLY polynomial
+3. EVALUATE polynomial
+4. QUIT
+        Enter choice # =&gt; 1
+Enter the file containing the polynomial to add =&gt; ptest2.txt
+
+8.0x^4 + 4.0x^3 + -3.0x + 9.0
+
+Sum: 4.0x^5 + 8.0x^4 + 2.0x^3 + -1.0x + 12.0
+
+
+1. ADD polynomial
+2. MULTIPLY polynomial
+3. EVALUATE polynomial
+4. QUIT
+        Enter choice # =&gt; 1
+Enter the file containing the polynomial to add  =&gt; ptest1opp.txt
+
+-4.0x^5 + 2.0x^3 + -2.0x + -3.0
+
+Sum: 0
+
+
+1. ADD polynomial
+2. MULTIPLY polynomial
+3. EVALUATE polynomial
+4. QUIT
+        Enter choice # =&gt; 1
+Enter the file containing the polynomial to add  =&gt; ptestnull.txt
+
+0
+
+Sum: 4.0x^5 + -2.0x^3 + 2.0x + 3.0
+
+
+1. ADD polynomial
+2. MULTIPLY polynomial
+3. EVALUATE polynomial
+4. QUIT
+        Enter choice # =&gt; 2
+Enter the file containing the polynomial to multiply  =&gt; ptest2
+
+8.0x^4 + 4.0x^3 + -3.0x + 9.0
+
+Product: 32.0x^9 + 16.0x^8 + -16.0x^7 + -20.0x^6 + 52.0x^5 + 38.0x^4 + -6.0x^3 + -6.0x^2 + 9.0x + 27.0
+
+
+1. ADD polynomial
+2. MULTIPLY polynomial
+3. EVALUATE polynomial
+4. QUIT
+        Enter choice # =&gt; 3
+Enter the evaluation point x  =&gt; 2
+Value at 2.0: 119.0
+
+
+1. ADD polynomial
+2. MULTIPLY polynomial
+3. EVALUATE polynomial
+4. QUIT
+        Enter choice # =&gt; 4</pre><p>The sample tests we have given you are just for starters. You will need to create other tests of your own on which you can run your code. For every test you run, be careful to keep your test input in the same format as the test files provided, otherwise <tt>Polytest</tt> will not work correctly. And make sure your test file is in the same folder as the other files, i.e. under <tt>Polynomial</tt>.</p><p><span style="color: red">Note on translation from internal to output representation</span>:</p><p>The <tt>toString</tt> method in the <tt>Polynomial</tt> class returns a string with the terms in descending order, fit for printing. (It processes the ascending ordered terms of the input linked list in reverse order.) For illustration, see how the <tt>add</tt>method in <tt>Polytest</tt> prints the resulting polynomial:</p><pre>    System.out.println("Sum: " + Polynomial.toString(Polynomial.add(poly1,poly2)) + "\n");
+</pre><p><span style="color: red">Notes about empty (zero) polynomials</span>:</p><ul><li>If you want to test with an empty polynomial input, you should create a file with nothing in it. In Eclipse, you can do this by right clicking on the project name in the package explorer view, then selecting <b>New</b>, then selecting <b>File</b>. Give a name, and click <b>Finish</b>. You new file will show up under the project name folder in the package explorer view, and the file will be opened in the text editor view. But don’t type anything in the file.</li><li>Remember that when you add two terms of the same degree, if you get a zero coefficient result term, it should not be added to the result polynomial. As listed in the “Notes about representation” in the <b>Background</b> section, zero-coefficient terms are not stored.</li><li>The string representation of a zero polynomial is “0” – see the <tt>toString</tt> method of the <tt>Polynomial</tt> class. So, the <tt>Polytest</tt> driver will print a zero for a zero polyomial input, or a zero polynomial that results from an operation performed on two polynomials.</li></ul></div></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d1b173c elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d1b173c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-0cc9ebf elementor-column elementor-col-100 elementor-top-column" data-id="0cc9ebf" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-bf2241f elementor-widget elementor-widget-text-editor" data-id="bf2241f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h4>Before submission</h4><ol start="4"><li><em>Collaboration policy</em>. Read our collaboration policy <a href="https://ds.cs.rutgers.edu/#academic-integrity">here</a>.</li><li><em>Submitting the assignment</em>.&nbsp;Submit <em>Polynomial.java</em>&nbsp;separately via the web submission system called Autolab. To do this, click the <em>Assignments</em> link from the course website; click the <em>Submit</em> link for that assignment.</li></ol><h4>Getting help</h4><p>If anything is unclear, don’t hesitate to drop by office hours or post a question on Piazza. Find instructors office hours by clicking the <a href="https://ds.cs.rutgers.edu/staff/"><em>Staff</em></a>&nbsp; link from the course website. In addition to office hours we have the <a href="https://resources.cs.rutgers.edu/docs/rooms-equipment/cave/">CAVE</a> (Collaborative Academic Versatile Environment), a community space staffed with lab assistants which are undergraduate students further along the CS major to answer questions.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+						</div>
+			</div>
+		</div>
+		</article>
+
+                </div>
+            </main>
+            <footer>
+                                <div class="sas-info">
+                    <div class="sas-container">
+                        <div class="sas-links-section">
+                            <h2 class="sas-links-title">Connect with Rutgers</h2>
+                            <ul class="sas-ul sas-links-list">
+                                <li class="sas-item"><a class="sas-link" href="http://www.rutgers.edu/">Rutgers Home</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://www.rutgers.edu/news-center/rutgers-today">Rutgers Today</a></li>
+                                <li class="sas-item"><a class="sas-link" href="https://my.rutgers.edu/portal">myRutgers</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://scheduling.rutgers.edu/calendar.shtml">Academic Calendar</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://ruevents.rutgers.edu/events/">Calendar of Events</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/news-a-events">SAS Events</a></li>
+                            </ul>
+                        </div>
+                        <div class="sas-links-section">
+                            <h2 class="sas-links-title">Explore SAS</h2>
+                            <ul class="sas-ul sas-links-list">
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/academics/departments-a-degree-granting-programs">Departments &amp; Degree-Granting Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/academics/other-instructional-programs">Other Instructional Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sasundergrad.rutgers.edu/index.php/academics/requirements/list-of-majors-and-minors">Majors &amp; Minors</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/for-faculty/795-research-programs-centers-and-institutes">Research Programs, Centers, &amp; Institutes</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sasip.rutgers.edu/">International Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://lifesci.rutgers.edu/">Division of Life Sciences</a></li>
+                            </ul>
+                        </div>
+                            
+                            <div class="sas-links-section">                    <h2 class="sas-links-title">Explore CS</h2>                    <ul class="sas-ul sas-links-list">                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/about/employment">We are Hiring!</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/research/computer-and-network-systems-list">Research</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/news">News</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events">Events</a></li><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events">                        </a><li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events"></a><a class="sas-link" href="https://resources.cs.rutgers.edu/">Resources</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/search">Search CS</a></li>                    </ul>                </div>            
+            
+            
+                    
+                    </div>
+                </div>
+
+                                <nav class="sas-bot-links" aria-label="Secondary Navigation">
+                    <div class="sas-container">
+                            
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    
+            </ul>
+        
+                    </div>
+                </nav>
+
+                                <div role="contentinfo" class="sas-copyright">
+                    <div class="sas-container">
+                        <a class="sas-link sas-to-top" href="https://ds.cs.rutgers.edu/assignment-polynomial/#">Back to Top</a>
+                        <p class="sas-copyright-p">
+                          Copyright 2020, Rutgers, The State University of New Jersey. All rights reserved.<br>
+                          Rutgers is an equal access/equal opportunity
+                          institution. Individuals with disabilities are
+                          encouraged to direct suggestions, comments, or
+                          complaints concerning any accessibility issues
+                          with Rutgers web sites to: <a class="sas-link" href="mailto:accessibility@rutgers.edu">accessibility@rutgers.edu</a> or complete the <a class="sas-link" href="https://oit.rutgers.edu/accessibility/barrierform">Report Accessibility Barrier or Provide Feedback Form</a>.
+                        </p>
+                    </div>
+                </div>
+
+            </footer>
+        </div>
+        <div aria-hidden="true">
+                <link rel="stylesheet" id="academicons-css" href="./Assignment 2_files/academicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./Assignment 2_files/font-awesome.min(1).css" type="text/css" media="all">
+<script type="text/javascript" src="./Assignment 2_files/js"></script>
+<script type="text/javascript" src="./Assignment 2_files/override.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/owl.carousel.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/slider.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/hoverIntent.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var megamenu = {"timeout":"300","interval":"100"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 2_files/maxmegamenu.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/public.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/wp-embed.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/frontend-modules.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/jquery.sticky.min.js"></script>
+<script type="text/javascript">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ds.cs.rutgers.edu\/wp-admin\/admin-ajax.php","nonce":"90316af5b4","i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"delicious":{"title":"Delicious"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""}};
+</script>
+<script type="text/javascript" src="./Assignment 2_files/frontend.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/position.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/dialog.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/waypoints.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/swiper.min.js"></script>
+<script type="text/javascript" src="./Assignment 2_files/share-link.min.js"></script>
+<script type="text/javascript">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","downloadImage":"Download image"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"2.9.8","urls":{"assets":"https:\/\/wordpress.cs.rutgers.edu\/ds-cs-rutgers-edu\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"general":{"elementor_global_image_lightbox":"yes","elementor_lightbox_enable_counter":"yes","elementor_lightbox_enable_fullscreen":"yes","elementor_lightbox_enable_zoom":"yes","elementor_lightbox_enable_share":"yes","elementor_lightbox_title_src":"title","elementor_lightbox_description_src":"description"},"editorPreferences":[]},"post":{"id":1759,"title":"Assignment%20Polynomial%20%E2%80%93%20Introduction%20to%20Data%20Structures%20and%20Algorithms","excerpt":"","featuredImage":false}};
+</script>
+<script type="text/javascript" src="./Assignment 2_files/frontend.min(2).js"></script>
+
+        </div><span id="elementor-device-mode" class="elementor-screen-only"></span>
+    
+
+</body></html>

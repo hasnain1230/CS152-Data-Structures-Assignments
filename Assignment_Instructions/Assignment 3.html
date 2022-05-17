@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://ds.cs.rutgers.edu/assignment-trie/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Introduction to Data Structures and Algorithms</title>
+        <link rel="stylesheet" href="./Assignment 3_files/style.css">
+   <link rel="dns-prefetch" href="https://maps.googleapis.com/">
+<link rel="dns-prefetch" href="https://wordpress.cs.rutgers.edu/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/ds.cs.rutgers.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.6"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><style>
+
+						@font-face {
+
+							font-family: 'Mtga-Extension-Comic-Sans';
+							src: url( 'chrome-extension://iopebbikefjcknnbmdkkcebchlnaioen/fonts/font4.ttf' );
+
+						}
+
+					</style><script src="./Assignment 3_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="theme-style-css" href="./Assignment 3_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-style-override-css" href="./Assignment 3_files/override.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Assignment 3_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Assignment 3_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-fontawesome-css" href="./Assignment 3_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-genericons-css" href="./Assignment 3_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="./Assignment 3_files/elementor-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="./Assignment 3_files/animations.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="./Assignment 3_files/frontend.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="./Assignment 3_files/frontend.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="./Assignment 3_files/all.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="./Assignment 3_files/v4-shims.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="./Assignment 3_files/global.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-1811-css" href="./Assignment 3_files/post-1811.css" type="text/css" media="all">
+<link rel="stylesheet" id="authorizer-public-css-css" href="./Assignment 3_files/authorizer-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="./Assignment 3_files/css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var OnePress_Plus = {"ajax_url":"https:\/\/ds.cs.rutgers.edu\/wp-admin\/admin-ajax.php","browser_warning":" Your browser does not support the video tag. I suggest you upgrade your browser."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 3_files/jquery.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/v4-shims.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var auth = {"wpLoginUrl":"https:\/\/ds.cs.rutgers.edu\/wp-login.php?redirect_to=%2Fassignment-trie%2F","publicWarning":"","anonymousNotice":"Notice: You are browsing this site anonymously, and only have access to a portion of its content.","logIn":"Log In"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 3_files/authorizer-public.js"></script>
+<link rel="https://api.w.org/" href="https://ds.cs.rutgers.edu/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ds.cs.rutgers.edu/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://ds.cs.rutgers.edu/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.4.6">
+<link rel="canonical" href="https://ds.cs.rutgers.edu/assignment-trie/">
+<link rel="shortlink" href="https://ds.cs.rutgers.edu/?p=1811">
+<link rel="alternate" type="application/json+oembed" href="https://ds.cs.rutgers.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fds.cs.rutgers.edu%2Fassignment-trie%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://ds.cs.rutgers.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fds.cs.rutgers.edu%2Fassignment-trie%2F&amp;format=xml">
+<script src="./Assignment 3_files/saved_resource" type="text/javascript"></script>
+<!-- teachPress -->
+<script type="text/javascript" src="./Assignment 3_files/frontend.js"></script>
+<link type="text/css" href="./Assignment 3_files/teachpress_front.css" rel="stylesheet">
+<!-- END teachPress -->
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif" sizes="32x32">
+<link rel="icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif" sizes="192x192">
+<link rel="apple-touch-icon" href="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif">
+<meta name="msapplication-TileImage" content="https://wordpress.cs.rutgers.edu/ds-cs-rutgers-edu/wp-content/uploads/sites/82/2018/10/favicons_shield.gif">
+<style type="text/css">/** Mega Menu CSS: fs **/</style>
+
+    <script type="text/javascript" charset="UTF-8" src="./Assignment 3_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./Assignment 3_files/util.js"></script></head>
+    <body data-elementor-device-mode="desktop">
+                <a class="sas-skip-to-content sas-link" href="https://ds.cs.rutgers.edu/assignment-trie/#sas-content">Skip to Main Content</a>
+        <input type="checkbox" class="sas-sidenav-toggle" id="sas-sidenav-toggle">
+        <label for="sas-sidenav-toggle" class="sas-sidenav-label" role="button" aria-label="Toggle Navigation Sidebar">
+            <div class="sas-bar"></div>
+            <div class="sas-bar"></div>
+            <div class="sas-bar"></div>
+        </label>
+        <nav class="sas-sidenav" aria-label="Primary Navigation">
+                
+            <ul class="sas-ul sas-links-tree">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    <li id="menu-item-178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-178 sas-item"><a href="https://ds.cs.rutgers.edu/" class="sas-link">Syllabus</a></li>
+<li id="menu-item-198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198 sas-item"><a href="https://ds.cs.rutgers.edu/lectures/" class="sas-link">Lectures</a></li>
+<li id="menu-item-291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291 sas-item"><a href="https://ds.cs.rutgers.edu/assignments/" class="sas-link">Assignments</a></li>
+<li id="menu-item-371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371 sas-item"><a href="https://ds.cs.rutgers.edu/exams/" class="sas-link">Exams</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 sas-item"><a href="https://ds.cs.rutgers.edu/staff/" class="sas-link">Staff</a></li>
+<li id="menu-item-1522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1522 sas-item"><a href="https://ds.cs.rutgers.edu/peer-mentors/" class="sas-link">Tutors</a></li>
+
+            </ul>
+        
+        </nav>
+
+        <div class="sas-page">
+                        <div class="sas-top-links">
+                <div class="sas-container">
+                        
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://www.rutgers.edu/">Rutgers Home</a>
+                </li>
+                
+    <li id="menu-item-1267" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1267 sas-item"><a href="http://sas.rutgers.edu/" class="sas-link">SAS</a></li>
+<li id="menu-item-1268" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1268 sas-item"><a href="http://cs.rutgers.edu/" class="sas-link">CS</a></li>
+
+            </ul>
+        
+                    <div class="sas-search">
+                            
+    <form role="search" method="get" action="https://ds.cs.rutgers.edu/">
+        <input class="sas-search-text" type="text" value="" name="s" placeholder="Search ..." aria-label="Search Query">
+    </form>
+
+                    </div>
+                </div>
+            </div>
+
+                        <header>
+                <div class="sas-banner">
+                    <div class="sas-container">
+                        <div role="img" aria-label="School of Arts and Sciences Logo">
+                            <a href="https://sas.rutgers.edu/" aria-label="School of Arts and Sciences">
+                            <img class="sas-logo sas-logo-big" src="./Assignment 3_files/red_banner.png" alt="School of Arts and Sciences Logo">
+                            <img class="sas-logo sas-logo-small" src="./Assignment 3_files/sas_red_header_MOBILE.png" alt="School of Arts and Sciences Logo">
+                            </a>
+                        </div>
+                        <h1 class="sas-title">
+                            <a class="sas-link" href="https://ds.cs.rutgers.edu/" aria-label="">Introduction to Data Structures and Algorithms</a>
+                        </h1>
+                        <h2 class="sas-tagline">
+                           Computer Science Department                        </h2>
+                    </div>
+                </div>
+            </header>
+
+                        <nav class="sas-nav" aria-label="Primary Navigation">
+                <div class="sas-container">
+                        
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-178 sas-item"><a href="https://ds.cs.rutgers.edu/" class="sas-link">Syllabus</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-198 sas-item"><a href="https://ds.cs.rutgers.edu/lectures/" class="sas-link">Lectures</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291 sas-item"><a href="https://ds.cs.rutgers.edu/assignments/" class="sas-link">Assignments</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371 sas-item"><a href="https://ds.cs.rutgers.edu/exams/" class="sas-link">Exams</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40 sas-item"><a href="https://ds.cs.rutgers.edu/staff/" class="sas-link">Staff</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1522 sas-item"><a href="https://ds.cs.rutgers.edu/peer-mentors/" class="sas-link">Tutors</a></li>
+
+            </ul>
+        
+                </div>
+            </nav>
+
+            <main class="sas-content" id="sas-content">
+                <div class="sas-container">
+                        
+    <article class="sas-post" data-detected_0="1">		<div data-elementor-type="wp-post" data-elementor-id="1811" class="elementor elementor-1811" data-elementor-settings="[]">
+			<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+							<section class="elementor-element elementor-element-80a7e1b elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="80a7e1b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-cc85108 elementor-column elementor-col-100 elementor-top-column" data-id="cc85108" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-45d9c17 elementor-widget elementor-widget-text-editor" data-id="45d9c17" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Trie – 100 course points</h3><p>The purpose of this assignment is to broaden your understanding of a tree structure.</p><p>Refer to our Programming <a href="https://ds.cs.rutgers.edu/assignment-faq/">Assignments FAQ</a> for instructions on how to install VSCode, how to use the command line and how to submit your assignments.</p><p>Autolab will be ready to receive submissions on <strong>Friday, March 5</strong>.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d272697 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d272697" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-898441f elementor-column elementor-col-100 elementor-top-column" data-id="898441f" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-4b19954 elementor-widget elementor-widget-text-editor" data-id="4b19954" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Summary</h3><p>You will write an application to build a tree structure called Trie for a dictionary of English words, and use the Trie to generate completion lists for string searches.</p><hr><h3><a name="trie"></a></h3><h3>Trie Structure</h3><p>A Trie is a general tree, in that each node can have <em>any</em> number of children. It is used to store a dictionary (list) of words that can be searched on,<br><span style="color: red">in a manner that allows for efficient generation of completion lists.</span></p><p>The word list is originally stored in an array, and the trie is built off of this array. Here are some examples of word lists and the tries built to store the words, followed by an explanation of the trie structure and its relationship to its source word list.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-820a1a2 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="820a1a2" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-b656dfd elementor-column elementor-col-100 elementor-top-column" data-id="b656dfd" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-4a20c66 elementor-widget elementor-widget-image" data-id="4a20c66" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="293" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.04.17-PM-1024x293.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.17-PM-1024x293.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.17-PM-300x86.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.17-PM-768x220.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.17-PM-1536x440.png 1536w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.17-PM-2048x587.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d5ce951 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d5ce951" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-4efe958 elementor-column elementor-col-100 elementor-top-column" data-id="4efe958" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-0ea71fa elementor-widget elementor-widget-image" data-id="0ea71fa" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="401" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.04.29-PM-1024x401.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.29-PM-1024x401.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.29-PM-300x117.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.29-PM-768x301.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.29-PM-1536x601.png 1536w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.29-PM-2048x802.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-6319110 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="6319110" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-00a748e elementor-column elementor-col-50 elementor-top-column" data-id="00a748e" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-85f920f elementor-widget elementor-widget-image" data-id="85f920f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="475" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.04.36-PM-1024x475.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.36-PM-1024x475.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.36-PM-300x139.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.36-PM-768x357.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.04.36-PM.png 1456w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div class="elementor-element elementor-element-1c0cdc5 elementor-column elementor-col-50 elementor-top-column" data-id="1c0cdc5" data-element_type="column">
+			<div class="elementor-column-wrap">
+					<div class="elementor-widget-wrap">
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-e40d701 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="e40d701" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-44ddd6e elementor-column elementor-col-100 elementor-top-column" data-id="44ddd6e" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-51b6616 elementor-widget elementor-widget-text-editor" data-id="51b6616" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Special Notes</h3><ul><li>Every leaf node represents a complete word, and every complete word is represented by some leaf node. (In other words, internal nodes do not represent complete words, only proper prefixes.)</li><li>No node, except for the root, can have a single child. In other words, every internal node has at least 2 children. Why? Because an internal node is a <em>common prefix</em> of several words. Consider these trees, in each of which an internal node has a single child (incorrect), and the equivalent correct tree:</li></ul></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-4897bc6 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="4897bc6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-1df6b26 elementor-column elementor-col-100 elementor-top-column" data-id="1df6b26" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-cdf05e2 elementor-widget elementor-widget-image" data-id="cdf05e2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="434" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.08.45-PM-1024x434.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.08.45-PM-1024x434.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.08.45-PM-300x127.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.08.45-PM-768x325.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.08.45-PM-1536x651.png 1536w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.08.45-PM.png 1822w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-70d58d1 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="70d58d1" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-56f1ae1 elementor-column elementor-col-100 elementor-top-column" data-id="56f1ae1" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-dc9bcc2 elementor-widget elementor-widget-text-editor" data-id="dc9bcc2" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p><span style="color: red">A trie does NOT accept two words where one entire word is a prefix of the other, such as “free” and “freedom”. </span><br>(You will not come across this situation in any of the test cases for your implementation.)</p><p>The process to build the tree (described in the <b>Building a Trie</b> section below), will create a single child of the root for the longest common prefix “free”, and this node will have a single child, a leaf node for the word “freedom”. But this is an incorrect tree because it will (a) violate the constraint that no node aside from the root can have a single child, and (b) violate the requirement that every complete word be a leaf node (the complete word “free” is not a leaf node).</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-5fdd314 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="5fdd314" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-5eea9f6 elementor-column elementor-col-33 elementor-top-column" data-id="5eea9f6" data-element_type="column">
+			<div class="elementor-column-wrap">
+					<div class="elementor-widget-wrap">
+						</div>
+			</div>
+		</div>
+				<div class="elementor-element elementor-element-2a3293b elementor-column elementor-col-33 elementor-top-column" data-id="2a3293b" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-05c6710 elementor-widget elementor-widget-image" data-id="05c6710" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="784" height="392" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.10.08-PM.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.10.08-PM.png 784w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.10.08-PM-300x150.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.10.08-PM-768x384.png 768w" sizes="(max-width: 784px) 100vw, 784px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div class="elementor-element elementor-element-3fdc304 elementor-column elementor-col-33 elementor-top-column" data-id="3fdc304" data-element_type="column">
+			<div class="elementor-column-wrap">
+					<div class="elementor-widget-wrap">
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-8d41a2c elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="8d41a2c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-a92c9df elementor-column elementor-col-100 elementor-top-column" data-id="a92c9df" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-0c17d63 elementor-widget elementor-widget-text-editor" data-id="0c17d63" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><ul><li><p>On the other hand, a tree with two leaf node children off the root node, one for the word “free” and the other for the word “freedom” will be incorrect<span style="color: red">because the longest common prefix MUST be a separate node.</span> (This is the basis of completion choices when the user starts typing a word.)</p></li></ul></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-2f49e3f elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="2f49e3f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-9d5817b elementor-column elementor-col-100 elementor-top-column" data-id="9d5817b" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-6c2b0f8 elementor-widget elementor-widget-text-editor" data-id="6c2b0f8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Data Structure</h3><p>Since the nodes in a trie have varying numbers of children, the structure is built using linked lists in which each node has three fields:</p><ul><li><b>substring</b> (which is a triplet of indexes)</li><li><b>first child</b>, and</li><li><b>sibling</b>, which is a pointer to the next sibling.</li></ul><p>Here’s a trie and the corresponding data structure:</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-edb4e74 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="edb4e74" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-d2439fc elementor-column elementor-col-50 elementor-top-column" data-id="d2439fc" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-a4baa1c elementor-widget elementor-widget-image" data-id="a4baa1c" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="638" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.12.45-PM-1024x638.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.12.45-PM-1024x638.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.12.45-PM-300x187.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.12.45-PM-768x478.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.12.45-PM.png 1436w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div class="elementor-element elementor-element-c6bf3d1 elementor-column elementor-col-50 elementor-top-column" data-id="c6bf3d1" data-element_type="column">
+			<div class="elementor-column-wrap">
+					<div class="elementor-widget-wrap">
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-4fb0978 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="4fb0978" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-a3be979 elementor-column elementor-col-100 elementor-top-column" data-id="a3be979" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-005957a elementor-widget elementor-widget-text-editor" data-id="005957a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Building a Trie</h3><p>A trie is built for a given list of words that is stored in array. The word list is input to the trie building algorithm. The trie starts out empty, inserting one word at a time.</p><h4>Example 1</h4><p>The following sequence shows the building of the above trie, one word at a time, with the complete data structure shown after each word is inserted.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-3b30b54 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="3b30b54" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-0d13f6a elementor-column elementor-col-100 elementor-top-column" data-id="0d13f6a" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-16707b0 elementor-widget elementor-widget-image" data-id="16707b0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="515" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.14.53-PM-1024x515.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.14.53-PM-1024x515.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.14.53-PM-300x151.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.14.53-PM-768x386.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.14.53-PM-1536x773.png 1536w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.14.53-PM-2048x1031.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-62196fe elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="62196fe" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-fc3a20b elementor-column elementor-col-100 elementor-top-column" data-id="fc3a20b" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-9bdb7f6 elementor-widget elementor-widget-text-editor" data-id="9bdb7f6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h4>Example 2</h4><p>This shows the sequence of inserts in building Trie 7 shown earlier.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-e37d064 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="e37d064" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-264c4fe elementor-column elementor-col-100 elementor-top-column" data-id="264c4fe" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-ceaf5f7 elementor-widget elementor-widget-image" data-id="ceaf5f7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="663" src="./Assignment 3_files/Screen-Shot-2021-03-03-at-8.16.19-PM-1024x663.png" class="attachment-large size-large" alt="" srcset="https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.16.19-PM-1024x663.png 1024w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.16.19-PM-300x194.png 300w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.16.19-PM-768x497.png 768w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.16.19-PM-1536x994.png 1536w, https://ds.cs.rutgers.edu/wp-content/uploads/sites/82/2021/03/Screen-Shot-2021-03-03-at-8.16.19-PM-2048x1326.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-57dc554 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="57dc554" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-8a24de9 elementor-column elementor-col-100 elementor-top-column" data-id="8a24de9" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-640d707 elementor-widget elementor-widget-text-editor" data-id="640d707" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Prefix Search</h3><p>Once the trie is set up for a list of words, you can compute word completions <span style="color: red">efficiently</span>.</p><p>For instance, in the trie of Example 2 above (cat, muscle, …), suppose you wanted to find all words that started with “po” (prefix). The search would start at the root, and touch the nodes <tt>[0,0,2],(1,0,2),(2,0,1),(2,2,2),(3,2,3),<span style="color: red">[2,3,6],[6,3,5],[3,4,7],[4,4,5] </span></tt>. The nodes marked in red are the ones that hold words that begin with the given prefix.</p><p><span style="color: red">Note that NOT ALL nodes in the tree are examined</span>. In particular, after examining (1,0,2), the entire subtree rooted at that node is skipped. This makes the search efficient. (Searching all nodes in the tree would obviously be very inefficient, you might as well have searched the word array in that case, why bother building a trie!)</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-c766eea elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="c766eea" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-4ff2e33 elementor-column elementor-col-100 elementor-top-column" data-id="4ff2e33" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-d0e66df elementor-widget elementor-widget-text-editor" data-id="d0e66df" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Implementation</h3><p><a href="https://rutgers.box.com/s/rr6h1pa9zy0fx1fbafny9kgf831i53vb">This zip file</a> contains the assignment files. Download and unzip in your computer. You will see there is a Trie directory with:</p><ul><li>samp2 directories/folders<ul><li><strong>src</strong>: contains the folder trie with <tt>Trie.java</tt>, <tt>TrieNode.java</tt>, and <tt>TrieApp.java</tt></li><li><strong>bin</strong>: contains the folder trie with the class files after the assignment is compiled</li></ul></li><li>6 files<ul><li><tt>words0.txt</tt>, <tt>words1.txt</tt>, <tt>words2.txt</tt>, <tt>words3.txt</tt>, <tt>words4.txt</tt>: sample word files.&nbsp;The first line of a word file is the number of the words, and the subsequent lines are the words, one per line.</li><li><tt>Makefile</tt>: used to automate building and executing the target program</li></ul></li></ul><p>You will implement the following methods in the <tt>Trie</tt> class:</p><ul><li><b>(65 pts)</b> <tt>buildTrie</tt>: Starting with an empty trie, builds it up by inserting words from an input array, one word at a time. The words in the input array are all lower case, and comprise of letters ONLY.</li><li><b>(35 pts)</b> <tt>completionList</tt>: For a given search prefix, scans the trie <span style="color: red">efficiently</span> (as describes in the Prefix Search section above), gathers and returns an <tt>ArrayList</tt> of references to all <span style="color: red">leaf</span> <tt>TrieNode</tt>s that hold words that begin with the search prefix (you should NOT create new nodes.) For instance, in the trie of Example 2 above, for search prefix “po” your implementation should return a list of references to these trie leaf nodes: <span style="color: red">[2,3,6],[6,3,5],[3,4,7],[4,4,5]</span>.NOTE:<ul><li>The order in which the leaf nodes appear in the returned list does not matter.</li><li>You may NOT search the words array directly, since that would defeat the purpose of building the trie, which allows for more efficient prefix search. See the <b>Prefix Search</b>section above. If you search the array, you will NOT GET ANY credit, even if your result is correct.</li><li>If your prefix search examines unnecessary nodes (see <b>Prefix Search</b> section above), you will NOT GET ANY credit, even if your result is correct.</li></ul></li></ul><p><span style="color: red">Make sure to read the comments in the code that precede classes, fields, and methods for code-specific details that do not appear here. Also, note that the methods are all <tt>static</tt>, and the <tt>Trie</tt> has a single private constructor, which means NO <tt>Trie</tt> instances are to be created – all manipulations are directly done via <tt>TrieNode</tt> instances.</span></p><p>You may NOT MAKE ANY CHANGES to the <b>Trie.java</b> file EXCEPT to (a) fill in the body of the required methods, or (b) add private helper methods. Otherwise, your submission will be penalized.</p><p>You may NOT MAKE ANY CHANGES to the <tt>TrieNode</tt> class (you will only be submitting <tt>Trie.java</tt>). When we test your submission, we will use the exact same version of <tt>TrieNode</tt>that we shipped to you.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-c75ad14 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="c75ad14" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-385f422 elementor-column elementor-col-100 elementor-top-column" data-id="385f422" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-134ac0f elementor-widget elementor-widget-text-editor" data-id="134ac0f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Compiling and Executing</h3><p>Once inside the Trie directory, type:</p><ul><li><strong><tt>javac -d bin src/trie/*.java</tt></strong> to compile</li><li><strong><tt>java -cp bin trie.TrieApp</tt></strong> to execute</li></ul><p>If you have a unix operating system (Linux or Mac OS) you CAN use the Makefile file provided. Once inside the Trie directory type:</p><ul><li><strong>make</strong> to compile</li><li><strong>make run</strong> to execute</li><li><strong>make clean</strong> remove all the .class files</li></ul></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-07b78de elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="07b78de" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-aff3ba2 elementor-column elementor-col-100 elementor-top-column" data-id="aff3ba2" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-772d501 elementor-widget elementor-widget-text-editor" data-id="772d501" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Testing</h3><p>You can test your program using the supplied <tt>TrieApp</tt> driver. It first asks for the name of an input file of words, with which it builds a trie by calling the <tt>Trie.buuldTree</tt> method. After the trie is built, it asks for search prefixes for which it computes completion lists, calling the <tt>Trie.completionList</tt> method.</p><p>Several sample word files are given with the project, directly under the project folder. (<tt>words0.txt</tt>, <tt>words1.txt</tt>, <tt>words2.txt</tt>, <tt>words3.txt</tt>, <tt>words4.txt</tt>). The first line of a word file is the number of the words, and the subsequent lines are the words, one per line.</p><p>There’s a convenient <tt>print</tt> method implemented in the <tt>Trie</tt> class that is used by <tt>TrieApp</tt> to output a tree for verification and debugging ONLY. Our testing script will NOT look at this output – see the <b>Grading</b> section below.</p><p>When we test your program:</p><ul><li>There will be at least one word in every test (no empty tests).</li><li>Words will ONLY have letters in the alphabet.</li><li>All words–for building the trie as well as for prefix searches–will be input in lower case.</li><li>We will NOT input duplicate words.</li><li>We will NOT input two words such that one is a prefix of the other, as in “free” and “freedom”, i.e. a complete word will not be a prefix of another word.</li></ul><p>Here are a couple of examples of running <tt>TrieApp</tt>:</p><p>The first run is for <a href="https://www.cs.rutgers.edu/courses/112/classes/fall_2020_venugopal/progs/prog2/words3.txt">words3.txt</a>:</p><pre>Enter words file name =&gt; words3.txt
+
+TRIE
+
+ ---root
+     |
+          doo
+     ---(0,0,2)
+         |
+              door
+         ---(0,3,3)
+         |
+              doom
+         ---(3,3,3)
+     |
+          por
+     ---(1,0,2)
+         |
+              pore
+         ---(1,3,3)
+         |
+              port
+         ---(2,3,3)
+
+completion list for (enter prefix, or 'quit'): do
+door,doom
+
+completion list for: quit
+</pre><p>The second run is for <a href="https://www.cs.rutgers.edu/courses/112/classes/fall_2020_venugopal/progs/prog2/words4.txt">words4.txt</a>:</p><div class="code"><pre>Enter words file name =&gt; words4.txt
+
+TRIE
+
+ ---root
+     |
+          cat
+     ---(0,0,2)
+     |
+          mus
+     ---(1,0,2)
+         |
+              muscle
+         ---(1,3,5)
+         |
+              musk
+         ---(5,3,3)
+     |
+          po
+     ---(2,0,1)
+         |
+              pot
+         ---(2,2,2)
+             |
+                  pottery
+             ---(2,3,6)
+             |
+                  potato
+             ---(6,3,5)
+         |
+              poss
+         ---(3,2,3)
+             |
+                  possible
+             ---(3,4,7)
+             |
+                  possum
+             ---(4,4,5)
+
+completion list for (enter prefix, or 'quit'): pos
+possible,possum
+
+completion list for: mu
+muscle,musk
+
+completion list for: pot
+pottery,potato
+
+completion list for: quit
+
+</pre></div><p>Try these tests with your implementation – your Trie printout MUST look IDENTICAL to the above. If your tree looks different, either your program logic is incorrect, or there is something different in the sequence of word inserts. In either case, you will not get any credit, so make sure you fix your code.</p><p>Also try the other sample word files. AND, try with word files of your own, formatted exactly like the sample word files – first line is number of words, then one word per subsequent line.</p><p>Go over the <tt>TrieApp</tt> code to understand how the <tt>Trie</tt> methods are called, and how the returned array list from <tt>completionList</tt> is processed to actually print the completion words.</p><h3>Grading</h3><p>The <tt>buildTrie</tt> method will be graded by <em>comparing the tree structure resulting from your implementation, with the correct tree structure produced by our implementation.</em> <span style="color: red">We will NOT be looking at the printout of the tree,</span> the <tt>print</tt> method in the <tt>Trie</tt> class (used by <tt>TrieApp</tt> as in the above test examples) is for your convenience only.</p><p>The <tt>completionList</tt> method will be graded by inputting prefix strings to some of the trees created in <tt>buildTrie</tt>. However, these <em>trees will be created by our correct implementation of</em> <tt>buildTrie</tt>. In other words, to test your <tt>completionList</tt> implementation, we will NOT use your <tt>buildTrie</tt> implementation at all. This is fully for your benefit, because if your <tt>buildTrie</tt> implementation is incorrect, it will not adversely affect the credit you get for your <tt>completionList</tt> implementation.</p><p>The nodes you return from the <tt>completionList</tt> method must belong to the Trie. If the returned list has one or more independent nodes created outside of the Trie (even if they have the correct data), you will not get any credit.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section class="elementor-element elementor-element-d1b173c elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="d1b173c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div class="elementor-element elementor-element-0cc9ebf elementor-column elementor-col-100 elementor-top-column" data-id="0cc9ebf" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div class="elementor-element elementor-element-bf2241f elementor-widget elementor-widget-text-editor" data-id="bf2241f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><h3>Before submission</h3><ul><li><em>Collaboration policy</em>. Read our collaboration policy <a href="https://ds.cs.rutgers.edu/#academic-integrity">here</a>.</li><li><em>Submitting the assignment</em>.&nbsp;Submit <em>Trie.java</em>&nbsp;separately via the web submission system called Autolab. To do this, click the <em>Assignments</em> link from the course website; click the <em>Submit</em> link for that assignment.</li></ul><h3>Getting help</h3><p>If anything is unclear, don’t hesitate to drop by office hours or post a question on Piazza. Find instructors office hours by clicking the <a href="https://ds.cs.rutgers.edu/staff/"><em>Staff</em></a>&nbsp; link from the course website. In addition to office hours we have the <a href="https://resources.cs.rutgers.edu/docs/rooms-equipment/cave/">CAVE</a> (Collaborative Academic Versatile Environment), a community space staffed with lab assistants which are undergraduate students further along the CS major to answer questions.</p></div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+						</div>
+			</div>
+		</div>
+		</article>
+
+                </div>
+            </main>
+            <footer>
+                                <div class="sas-info">
+                    <div class="sas-container">
+                        <div class="sas-links-section">
+                            <h2 class="sas-links-title">Connect with Rutgers</h2>
+                            <ul class="sas-ul sas-links-list">
+                                <li class="sas-item"><a class="sas-link" href="http://www.rutgers.edu/">Rutgers Home</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://www.rutgers.edu/news-center/rutgers-today">Rutgers Today</a></li>
+                                <li class="sas-item"><a class="sas-link" href="https://my.rutgers.edu/portal">myRutgers</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://scheduling.rutgers.edu/calendar.shtml">Academic Calendar</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://ruevents.rutgers.edu/events/">Calendar of Events</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/news-a-events">SAS Events</a></li>
+                            </ul>
+                        </div>
+                        <div class="sas-links-section">
+                            <h2 class="sas-links-title">Explore SAS</h2>
+                            <ul class="sas-ul sas-links-list">
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/academics/departments-a-degree-granting-programs">Departments &amp; Degree-Granting Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/academics/other-instructional-programs">Other Instructional Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sasundergrad.rutgers.edu/index.php/academics/requirements/list-of-majors-and-minors">Majors &amp; Minors</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sas.rutgers.edu/for-faculty/795-research-programs-centers-and-institutes">Research Programs, Centers, &amp; Institutes</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://sasip.rutgers.edu/">International Programs</a></li>
+                                <li class="sas-item"><a class="sas-link" href="http://lifesci.rutgers.edu/">Division of Life Sciences</a></li>
+                            </ul>
+                        </div>
+                            
+                            <div class="sas-links-section">                    <h2 class="sas-links-title">Explore CS</h2>                    <ul class="sas-ul sas-links-list">                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/about/employment">We are Hiring!</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/research/computer-and-network-systems-list">Research</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/news">News</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events">Events</a></li><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events">                        </a><li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/news-events/cs-events"></a><a class="sas-link" href="https://resources.cs.rutgers.edu/">Resources</a></li>                        <li class="sas-item"><a class="sas-link" href="https://www.cs.rutgers.edu/search">Search CS</a></li>                    </ul>                </div>            
+            
+            
+                    
+                    </div>
+                </div>
+
+                                <nav class="sas-bot-links" aria-label="Secondary Navigation">
+                    <div class="sas-container">
+                            
+            <ul class="sas-ul sas-links-strip">
+                <li class="sas-item">
+                    <a class="sas-link" href="https://ds.cs.rutgers.edu/">Home</a>
+                </li>
+                
+    
+            </ul>
+        
+                    </div>
+                </nav>
+
+                                <div role="contentinfo" class="sas-copyright">
+                    <div class="sas-container">
+                        <a class="sas-link sas-to-top" href="https://ds.cs.rutgers.edu/assignment-trie/#">Back to Top</a>
+                        <p class="sas-copyright-p">
+                          Copyright 2020, Rutgers, The State University of New Jersey. All rights reserved.<br>
+                          Rutgers is an equal access/equal opportunity
+                          institution. Individuals with disabilities are
+                          encouraged to direct suggestions, comments, or
+                          complaints concerning any accessibility issues
+                          with Rutgers web sites to: <a class="sas-link" href="mailto:accessibility@rutgers.edu">accessibility@rutgers.edu</a> or complete the <a class="sas-link" href="https://oit.rutgers.edu/accessibility/barrierform">Report Accessibility Barrier or Provide Feedback Form</a>.
+                        </p>
+                    </div>
+                </div>
+
+            </footer>
+        </div>
+        <div aria-hidden="true">
+                <link rel="stylesheet" id="academicons-css" href="./Assignment 3_files/academicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./Assignment 3_files/font-awesome.min(1).css" type="text/css" media="all">
+<script type="text/javascript" src="./Assignment 3_files/js"></script>
+<script type="text/javascript" src="./Assignment 3_files/override.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/owl.carousel.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/slider.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/hoverIntent.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var megamenu = {"timeout":"300","interval":"100"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Assignment 3_files/maxmegamenu.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/public.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/wp-embed.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/frontend-modules.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/jquery.sticky.min.js"></script>
+<script type="text/javascript">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ds.cs.rutgers.edu\/wp-admin\/admin-ajax.php","nonce":"90316af5b4","i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"delicious":{"title":"Delicious"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""}};
+</script>
+<script type="text/javascript" src="./Assignment 3_files/frontend.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/position.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/dialog.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/waypoints.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/swiper.min.js"></script>
+<script type="text/javascript" src="./Assignment 3_files/share-link.min.js"></script>
+<script type="text/javascript">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","downloadImage":"Download image"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"2.9.8","urls":{"assets":"https:\/\/wordpress.cs.rutgers.edu\/ds-cs-rutgers-edu\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"general":{"elementor_global_image_lightbox":"yes","elementor_lightbox_enable_counter":"yes","elementor_lightbox_enable_fullscreen":"yes","elementor_lightbox_enable_zoom":"yes","elementor_lightbox_enable_share":"yes","elementor_lightbox_title_src":"title","elementor_lightbox_description_src":"description"},"editorPreferences":[]},"post":{"id":1811,"title":"Assignment%20Trie%20%E2%80%93%20Introduction%20to%20Data%20Structures%20and%20Algorithms","excerpt":"","featuredImage":false}};
+</script>
+<script type="text/javascript" src="./Assignment 3_files/frontend.min(2).js"></script>
+
+        </div><span id="elementor-device-mode" class="elementor-screen-only"></span>
+    
+
+</body></html>

@@ -1,0 +1,49 @@
+/*
+Override theme CSS for 3rd party elements
+*/
+body {
+  overflow-x: hidden;
+  font-family: Helvetica, Arial, Sans-Serif, FontAwesome;
+}
+@media screen and (max-width: 782px) {
+  body {
+    height: calc(100% - 46px);
+  }
+}
+@media screen and (min-width: 783px) {
+  body {
+    height: calc(100% - 32px);
+  }
+}
+.sas-carousel .elementor-element-populated {
+  padding: 0 0 10px 0 !important;
+}
+@media (min-width: 1200px) {
+  .sas-carousel .swiper-container {
+    height: 400px !important;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199.99px) {
+  .sas-carousel .swiper-container {
+    height: 320px !important;
+  }
+}
+@media (max-width: 959.99px) {
+  .sas-carousel .swiper-container {
+    display: none;
+  }
+}
+.sas-video .elementor-element-populated {
+  padding: 0 0 10px 0 !important;
+}
+@media (max-width: 959.99px) {
+  .sas-video .elementor-element-populated {
+    display: none;
+  }
+}
+.sas-links-widget .textwidget p {
+  margin: 0 0 8px 0;
+}
+.sas-links-widget .textwidget strong {
+  font-weight: bold;
+}

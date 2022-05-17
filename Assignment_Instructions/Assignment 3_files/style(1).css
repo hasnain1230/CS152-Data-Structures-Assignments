@@ -1,0 +1,586 @@
+/*
+Theme Name: Rutgers - SAS
+Author: Jack Foltz
+Description: Rutgers SAS Static Theme
+Version: 1.0
+*/
+@font-face {
+  font-family: FontAwesome;
+  src: url("https://www.cs.rutgers.edu/libraries/gantry/assets/jui/fonts/fontawesome-webfont.woff?v=3.2.1");
+}
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow-x: hidden;
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+.sas-container {
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+@media (min-width: 1200px) {
+  .sas-container {
+    width: 1200px;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199.99px) {
+  .sas-container {
+    width: 960px;
+  }
+}
+@media (min-width: 768px) and (max-width: 959.99px) {
+  .sas-container {
+    width: 768px;
+  }
+}
+@media (max-width: 767.99px) {
+  .sas-container {
+    max-width: 480px;
+    padding: 0 10px;
+  }
+}
+.sas-ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: unset;
+}
+.sas-link {
+  cursor: pointer;
+  color: #fff;
+  transition: 0.2s ease-out;
+}
+.sas-links-strip > .sas-item {
+  display: inline-block;
+  cursor: pointer;
+}
+.sas-links-list {
+  flex-direction: column;
+}
+.sas-skip-to-content {
+  position: absolute;
+  z-index: 1;
+  left: -9999px;
+  font-weight: bold;
+}
+.sas-skip-to-content:focus {
+  display: block;
+  left: 2px;
+  top: 2px;
+  padding: 10px;
+  background: #c03;
+  border-radius: 16px;
+}
+.sas-top-links {
+  position: relative;
+  background: linear-gradient(to bottom, #3b3b3b, #2e2e2e);
+}
+.sas-top-links .sas-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sas-top-links .sas-search {
+  margin: 7px 0 8px auto;
+}
+.sas-top-links .sas-search .sas-search-text {
+  font-size: 14px;
+  padding: 5px 14px;
+}
+@media (min-width: 768px) {
+  .sas-top-links .sas-search .sas-search-text {
+    width: 300px;
+  }
+}
+@media (max-width: 767.99px) {
+  .sas-top-links .sas-search {
+    margin-right: auto;
+  }
+}
+@media (max-width: 959.99px) {
+  .sas-top-links .sas-links-strip {
+    display: none;
+  }
+}
+.sas-top-links .sas-links-strip .sas-item {
+  margin: 0 0 0 -4px;
+  padding: 12px;
+}
+.sas-top-links .sas-links-strip .sas-item .sas-link {
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+}
+.sas-top-links .sas-links-strip .sas-item:hover {
+  background: #000;
+}
+.sas-top-links .sas-links-strip .sas-item:hover .sas-link {
+  color: #ffc910;
+  text-decoration: underline;
+}
+.sas-banner {
+  background: #c03;
+}
+.sas-banner .sas-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 959.99px) {
+  .sas-banner .sas-container {
+    flex-direction: column-reverse;
+  }
+}
+.sas-title {
+  margin: 0;
+}
+.sas-title .sas-link {
+  text-decoration: none;
+}
+.sas-title .sas-link:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1200px) {
+  .sas-title {
+    bottom: 13px;
+  }
+  .sas-title .sas-link {
+    font-size: 25.9px;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199.99px) {
+  .sas-title {
+    bottom: 26px;
+  }
+}
+@media (min-width: 960px) {
+  .sas-title {
+    position: absolute;
+    right: 0;
+  }
+}
+@media (max-width: 1199.99px) {
+  .sas-title .sas-link {
+    font-size: 23.3px;
+  }
+}
+@media (max-width: 959.99px) {
+  .sas-title {
+    align-self: flex-start;
+    margin: 7px 0 3px 4px;
+  }
+}
+.sas-tagline {
+  margin: 0;
+  color: #fff;
+/*
+  .link
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  */
+}
+@media (min-width: 1200px) {
+  .sas-tagline {
+    bottom: 52px;
+    font-size: 18.2px;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199.99px) {
+  .sas-tagline {
+    bottom: 60px;
+    font-size: 16.38px;
+  }
+}
+@media (min-width: 960px) {
+  .sas-tagline {
+    position: absolute;
+    right: 0;
+  }
+}
+@media (max-width: 959.99px) {
+  .sas-tagline {
+    align-self: flex-start;
+    margin: 4px 0 0px 4px;
+    font-size: 14px;
+  }
+}
+.sas-sidenav-toggle {
+  display: none;
+}
+.sas-sidenav-label {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 9px;
+  left: 15px;
+  padding: 7px 10px;
+  border: 1px solid #343434;
+  background: linear-gradient(to bottom, #3a3a3a, #141414);
+  box-shadow: inset 0px 1px 0px #343434, inset 0px 2px 0px #585858, 0px 1px 1px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+@media (min-width: 768px) {
+  .sas-sidenav-label {
+    display: none;
+  }
+}
+.sas-sidenav-label .sas-bar {
+  width: 18px;
+  height: 2px;
+  background: #d8d8d8;
+  margin-top: 3px;
+}
+.sas-sidenav-label .sas-bar:first-child {
+  margin-top: 0;
+}
+.sas-sidenav {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: #424242;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.5) inset, -1px 0 0 rgba(0,0,0,0.3) inset;
+  overflow: auto;
+  transform: translateX(-200px);
+  transition: transform 0.2s ease-out;
+}
+@media (min-width: 768px) {
+  .sas-sidenav {
+    display: none;
+  }
+}
+.sas-sidenav .sas-ul {
+  position: relative;
+}
+.sas-sidenav .sas-ul .sas-item:last-child {
+  border-left: none;
+}
+.sas-sidenav .sas-ul .sas-item:last-child::before {
+  border-left: 1px solid #777;
+}
+.sas-sidenav .sas-links-tree {
+  flex-direction: column;
+  margin: 10px 10px 0 0;
+}
+.sas-sidenav .sas-links-tree > .sas-item:first-child {
+  border-left: none;
+}
+.sas-sidenav .sas-links-tree > .sas-item:first-child::before {
+  border-left: 1px solid #777;
+  border-top: 1px solid #777;
+  border-bottom: none;
+  margin-top: 1em;
+  height: 100%;
+}
+.sas-sidenav .sas-links-tree > .sas-item > .sas-link {
+  font-size: 14px;
+}
+.sas-sidenav .sas-sub-menu {
+  flex-direction: column;
+}
+.sas-sidenav .sas-sub-menu > .sas-item > .sas-link {
+  font-size: 13px;
+}
+.sas-sidenav .sas-item {
+  position: relative;
+  display: block;
+  border-left: 1px solid #777;
+  margin: 0 0 0 10px;
+  padding: 0 0 0 10px;
+}
+.sas-sidenav .sas-item::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 0.8em;
+  left: 0;
+  width: 10px;
+  color: #fff;
+  border-bottom: 1px solid #777;
+}
+.sas-sidenav .sas-item .sas-link {
+  display: inline-block;
+  color: #d8d8d8;
+  font-weight: bold;
+  text-shadow: #000 1px 1px 0;
+  text-decoration: none;
+  padding: 6px 5px;
+  overflow-wrap: break-word;
+}
+.sas-sidenav .sas-item.sas-active > .sas-link {
+  background: #2f2f2f;
+  border: 1px solid #222;
+  border-radius: 4px;
+  width: 100%;
+}
+@media (max-width: 767.99px) {
+  .sas-sidenav-toggle:checked ~ .sas-sidenav {
+    transform: translateX(0);
+  }
+  .sas-sidenav-toggle:checked ~ .sas-page {
+    transform: translateX(200px);
+    height: 100vh;
+    overflow: hidden;
+  }
+  .sas-sidenav-toggle:checked ~ .sas-sidenav-label {
+    transform: translateX(200px);
+  }
+}
+.sas-page {
+  transition: transform 0.2s ease-out;
+}
+.sas-search-results {
+  padding: 20px;
+}
+.sas-search-results .sas-search-title {
+  margin: 10px 0 30px 0;
+  font-size: 24px;
+}
+.sas-search-results .sas-search-title .sas-search-query {
+  font-weight: bold;
+}
+.sas-search-results .sas-search-result .sas-search-result-title .sas-link {
+  font-size: 22px;
+  color: #c03;
+  text-decoration: none;
+}
+.sas-search-results .sas-search-result .sas-search-result-excerpt {
+  font-size: 14px;
+  color: #777;
+}
+.sas-search-results .sas-search-text {
+  width: 300px;
+  font-size: 14px;
+  padding: 5px 14px;
+}
+.sas-notfound {
+  padding: 20px;
+}
+.sas-notfound .sas-notfound-title {
+  margin: 10px 0 30px 0;
+  color: #c03;
+}
+@media (max-width: 767.99px) {
+  .sas-nav {
+    display: none;
+  }
+}
+.sas-nav .sas-container {
+  background: #333;
+  overflow: visible;
+}
+.sas-nav .sas-links-strip {
+  flex-wrap: wrap;
+}
+.sas-nav .sas-links-strip .sas-item {
+  position: relative;
+}
+.sas-nav .sas-links-strip .sas-item .sas-link {
+  display: inline-block;
+  padding: 12px 20px 14px 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.sas-nav .sas-links-strip .sas-item .sas-sub-menu {
+  position: absolute;
+  display: none;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+  background: #000;
+  padding: 10px 5px;
+}
+.sas-nav .sas-links-strip .sas-item .sas-sub-menu .sas-item:hover {
+  background: #4e4e4e;
+}
+.sas-nav .sas-links-strip .sas-item .sas-sub-menu .sas-item:hover .sas-link {
+  color: #ffc910;
+  text-decoration: underline;
+}
+.sas-nav .sas-links-strip .sas-item.sas-has-children > .sas-link::after {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -1px;
+  font-family: FontAwesome;
+  content: '\f078';
+}
+.sas-nav .sas-links-strip .sas-item:hover,
+.sas-nav .sas-links-strip .sas-item.sas-active {
+  background: #000;
+}
+.sas-nav .sas-links-strip .sas-item:hover > .sas-link,
+.sas-nav .sas-links-strip .sas-item.sas-active > .sas-link {
+  color: #ffc910;
+}
+.sas-nav .sas-links-strip .sas-item:hover .sas-sub-menu {
+  display: block;
+}
+.sas-info {
+  background: #555;
+}
+.sas-info .sas-container {
+  display: flex;
+  flex-shrink: 1;
+}
+@media (max-width: 767.99px) {
+  .sas-info .sas-container {
+    flex-direction: column;
+  }
+}
+.sas-info .sas-links-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 10px;
+}
+.sas-info .sas-links-section .sas-links-title {
+  display: inline-block;
+  color: #ffc910;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 20px 0 30px 0;
+}
+.sas-info .sas-links-section .sas-item {
+  margin-bottom: 8px;
+}
+.sas-info .sas-links-section .sas-item .sas-link {
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+}
+.sas-info .sas-links-section .sas-item .sas-link:hover {
+  color: #ffc910;
+  background: #000;
+}
+.sas-info .sas-links-widget {
+  margin-top: 3px;
+  color: #fff;
+  font-size: 13px;
+}
+.sas-content .sas-container {
+  background: #f9f9f9;
+}
+.sas-bot-links {
+  background: #333;
+}
+.sas-bot-links .sas-links-strip .sas-item {
+  margin: 11px 2px 8px 0;
+  font-size: 12px;
+}
+.sas-bot-links .sas-links-strip .sas-item .sas-link {
+  text-decoration: none;
+  display: inline-block;
+  padding: 11px 12px 12px 12px;
+  font-weight: bold;
+}
+.sas-bot-links .sas-links-strip .sas-item:hover .sas-link {
+  text-decoration: underline;
+}
+.sas-bot-links .sas-links-strip .sas-item:hover,
+.sas-bot-links .sas-links-strip .sas-item.sas-active {
+  background: #c03;
+}
+.sas-bot-links .sas-links-strip .sas-item.sas-active::before {
+  color: #fff;
+  font-family: FontAwesome;
+  content: '\f054';
+  margin-left: 12px;
+}
+.sas-copyright {
+  background: #000;
+}
+.sas-copyright .sas-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 16px;
+}
+.sas-copyright .sas-to-top {
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 9.9px;
+  text-decoration: none;
+  text-align: center;
+  background: #4e4e4e;
+  padding: 6px 10px;
+}
+.sas-copyright .sas-to-top:hover {
+  text-decoration: underline;
+  background: #c03;
+}
+@media (max-width: 767.99px) {
+  .sas-copyright .sas-to-top {
+    align-self: stretch;
+  }
+}
+.sas-copyright .sas-copyright-p {
+  display: inline-block;
+  margin: 12px 0 0 0;
+  color: #ddd;
+  font-size: 11px;
+  line-height: 1.3em;
+}
+@media (max-width: 767.99px) {
+  .sas-copyright .sas-copyright-p {
+    text-align: center;
+  }
+}
+.sas-copyright .sas-copyright-p .sas-link {
+  color: #ffc910;
+  font-weight: bold;
+  text-decoration: none;
+}
+.sas-copyright .sas-copyright-p .sas-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.sas-logo {
+  display: block;
+}
+.sas-logo-big {
+  object-fit: cover;
+  object-position: left;
+}
+@media (min-width: 1200px) {
+  .sas-logo-big {
+    height: 140px;
+    width: 480px;
+  }
+}
+@media (min-width: 960px) and (max-width: 1199.99px) {
+  .sas-logo-big {
+    height: 112px;
+    width: 420px;
+  }
+}
+@media (max-width: 959.99px) {
+  .sas-logo-big {
+    display: none;
+  }
+}
+.sas-logo-small {
+  border-top: 1px solid #b00e2d;
+}
+@media (min-width: 960px) {
+  .sas-logo-small {
+    display: none;
+  }
+}
+@media (max-width: 767.99px) {
+  .sas-logo-small {
+    width: 100%;
+  }
+}
